@@ -67,18 +67,18 @@ if [ -f "$LOCAL_SOURCE_DIR/pom.xml" ]; then
 
   echo "---> Moving binaries ..."
 
-  cp -rfv $LOCAL_SOURCE_DIR/$ARTIFACT_DIR/*${APP_SUFFIX}.war $DEPLOY_DIR/app.war 2> /dev/null
+  cp -rv $LOCAL_SOURCE_DIR/$ARTIFACT_DIR/*${APP_SUFFIX}.war $DEPLOY_DIR/app.war
   echo "[INFO] Application war file is located in ${DEPLOY_DIR}/app.war"
 
-  popd &> /dev/null
+  popd
 
 else
   echo "[ERROR] No pom.xml file found in '$LOCAL_SOURCE_DIR'"
   exit 1
 fi
 
-echo "---> Cleaning up ..."
-rm -rf ${HOME}/.m2/repository/*
+echo "---> No Cleaning up ..."
+# rm -rf ${HOME}/.m2/repository/*
 
 # Success
 exit 0
